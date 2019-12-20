@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
   export class ListPage implements OnInit {
     list:Array<Task> = [];
     listSub:Subscription;
+    completed:boolean;
   
     constructor(
       private dataService:DataService
@@ -23,5 +24,10 @@ import { Component, OnInit } from '@angular/core';
   
     delete( itemStart ) {
       this.dataService.deleteFromList( itemStart );
+    }
+
+    completeTask(itemStart){
+      this.dataService.setCompleted( itemStart );
+      
     }
 }

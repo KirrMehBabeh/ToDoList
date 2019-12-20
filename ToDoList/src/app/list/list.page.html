@@ -18,12 +18,15 @@
                 <ion-note>{{item.dateToComplete|date:'dd MM yyyy' }}</ion-note>
               </ion-col>
               <ion-col size="5">
-                  <ion-button color="secondary" (click)="setCompleted()">
+                  <ion-button color="secondary" (click)="completeTask(item.start)" *ngIf="!item.completed">
                       Not Completed
                   </ion-button>
+                  <ion-button color="secondary" (click)="completeTask(item.start)" *ngIf="item.completed">
+                    Completed
+                </ion-button>
               </ion-col>
               <ion-col size="3">
-                  <ion-button color="secondary" (click)="delete(item.start)">
+                  <ion-button color="secondary" (click)="delete(item.start)" *ngIf="item.completed">
                       Delete Task
                     </ion-button>
               </ion-col>

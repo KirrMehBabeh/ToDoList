@@ -30,7 +30,8 @@ export class CreatePage implements OnInit {
     let task:Task = {
       name: this.taskForm.get('name').value,
       start: this.startTime,
-      dateToComplete: this.taskForm.get('dateComplete').value
+      dateToComplete: this.taskForm.get('dateComplete').value,
+      completed: false
     }
     this.dataService.addToList( task ); 
     this.taskForm.reset();

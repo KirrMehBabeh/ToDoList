@@ -29,6 +29,18 @@ export class DataService {
     });
     this.list$.next( this.taskList );
   }
+  setCompleted(id:number){
+    this.taskList.forEach( (task:Task, index ) => {
+      if( task.start == id ) {
+        if(task.completed){
+          task.completed = false;
+        }
+        else{
+          task.completed = true;
+        }
+      }
+    });
+  }
   saveData() {
     let data = JSON.stringify( this.taskList );
     try {
